@@ -2,24 +2,6 @@
 //var urlUsers= 'https://jsonplaceholder.typicode.com/users';
 var urlUsers='http://34.226.226.84:3000';
 
-function generateUrlPostUser(){
-    let cert = document.getElementById("cert").value;
-    let key = document.getElementById("key").value;
-    let pass = document.getElementById("pass").value;
-    let urlPostUser='http://34.226.226.84:3000/api/'+cert+'/'+key+'/'+pass+'';
-    return urlPostUser;
-};
-function generateUrlDelteUser(){
-    let cert = document.getElementById("certDelete").value;
-    let urlDeletetUser='http://34.226.226.84:3000/api/'+cert+'';
-    return urlDeletetUser;
-};
-function generateUrlPutUser(){
-    let cert = document.getElementById("certPut").value;
-    let Newcert = document.getElementById("NewcertPut").value;
-    let urlPutUser='http://34.226.226.84:3000/api/'+cert+'/'+Newcert+'';
-    return urlPutUser;
-}
 new Vue({
     el:'#main',
     created: function(){
@@ -32,6 +14,24 @@ new Vue({
         lists: []
     },
     methods: {
+        generateUrlPostUser:function(){
+            let cert = document.getElementById("cert").value;
+            let key = document.getElementById("key").value;
+            let pass = document.getElementById("pass").value;
+            let urlPostUser='http://34.226.226.84:3000/api/'+cert+'/'+key+'/'+pass+'';
+            return urlPostUser;
+        },
+        generateUrlPutUser:function(){
+            let cert = document.getElementById("certPut").value;
+            let Newcert = document.getElementById("NewcertPut").value;
+            let urlPutUser='http://34.226.226.84:3000/api/'+cert+'/'+Newcert+'';
+            return urlPutUser;
+        },
+        generateUrlDelteUser:function(){
+            let cert = document.getElementById("certDelete").value;
+            let urlDeletetUser='http://34.226.226.84:3000/api/'+cert+'';
+            return urlDeletetUser;
+        },
         getUsers: function(urlUsers){
             this.$http.get(urlUsers).then(function(response){
                 this.lists=response.data.users;
@@ -60,5 +60,5 @@ new Vue({
                 console.log(e);
             });
         }
-    },
+    }
 });
