@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+    crossorigin="anonymous">
+    <title>VueJS</title>
+</head>
+<body>
+    <div id="main" class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h1>GET REQUEST</h1>
+                <h1>Lista VueJS - AJAX</h1>
+                <ul class="List-group">
+                    <li v-for="item in lists" class="ist-group-item">
+                        {{ item.id}} {{ item.certificado}} 
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-8">
+                <h1>JSON</h1>
+                <pre>
+                    {{ $data | json}}
+                </pre>
+            </div>
+            <br>
+            <div class="col-sm-8">
+                <h1>POST REQUEST</h1>
+                <form>
+                    Certificate:<br>
+                    <input type="text"  id="cert">
+                    <br>
+            
+                    Key:<br>
+                    <input type="text"  id="key">
+                    <br>
+            
+                    Password:<br>
+                    <input type="text"  id="pass">
+                    <br>
+            
+                    <button type="button" v-on:click="postUsers(generateUrlPostUser())">Submit</button>
+                    <br>
+            
+                </form>
+            
+            </div>
+            <div class="col-sm-8">
+                <h1>DELETE REQUEST</h1>
+                <form>
+                    Certificate:<br>
+                    <input type="text"  id="certDelete">
+                    <br>
+            
+                    <button type="button" v-on:click="deleteUser(generateUrlDelteUser())">Submit</button>
+                    <br>
+                </form>
+            </div>
+            <div class="col-sm-8">
+                    <h1>PUT REQUEST</h1>
+                    <form>
+                        Certificate:<br>
+                        <input type="text"  id="certPut">
+                        <br>
+
+                         New Certificate:<br>
+                        <input type="text"  id="NewcertPut">
+                        <br>
+                
+                        <button type="button" v-on:click="putUser(generateUrlPutUser())">Submit</button>
+                        <br>
+                    </form>
+                </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.21/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <script src=app.js>
+        
+    </script>
+</body>
+</html>
